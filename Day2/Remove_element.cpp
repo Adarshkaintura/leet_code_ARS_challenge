@@ -1,3 +1,4 @@
+//brute force type here i restored the data
 class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {
@@ -23,5 +24,21 @@ public:
              }
          }
         return len;
+    }
+};
+//here i didn't restores the data as it is not asked from the question so the optimised approach is this 
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int i=0;
+        int k=0;
+
+        while(i<nums.size()){
+            if(nums[i]!=val){
+               nums[k++]=nums[i];
+            }
+            i++;
+        }
+        return k;
     }
 };
