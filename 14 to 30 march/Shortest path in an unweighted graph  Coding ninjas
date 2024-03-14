@@ -1,0 +1,40 @@
+#include<unordered_map>
+#include<queue>
+#include<list>
+
+vector<int> shortestPath( vector<pair<int,int>> edges , int n , int m, int s , int t){
+	//here we are coverting graph in to a list
+	unordered_map<int,list<int>> adj;
+	for(int i=0;i<edges.size();i++){
+		int u=edges[i].first;
+		int v=edges[i].second;
+
+		adj[u].push_back(v);
+		adj[v].push_back(u);
+	}
+unordered_map<int,int> parent;
+unordered_map<int,bool> visited;
+parent[s]=-1;
+visited[s]=true;
+queue<int> q;
+q.push(s);
+while(!q.empty()){
+	int a=q.front();
+	q.pop();
+	for(auto b:adj[a]){
+		if(!visited[b]){
+			visited[b]=true;
+			q.push(b);
+			parent[b]=a;
+		}
+	}
+}
+vector<int> ans;
+int check=t;
+while(check!=-1){
+     ans.push_back(check);
+     check=parent[check];
+}
+reverse(ans.begin(),ans.end());
+return ans;	
+}
