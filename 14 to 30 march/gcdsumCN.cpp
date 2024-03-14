@@ -5,6 +5,7 @@
 // Note :
 
 // Gcd of two numbers (X, Y) is defined as the largest integer that divides both ‘X’ and ‘Y’
+//below mthod is partially accepted becuase of n square logn time complexity you need find out a good approach
 long long gcd(int a,int b){
     if (b == 0)
         return a;
