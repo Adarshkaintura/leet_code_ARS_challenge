@@ -17,3 +17,23 @@
 // -3E: Room E on the 3rd floor is freed.
 // So you collected 4 coins.
 
+//my solution
+#include <bits/stdc++.h> 
+int hotelBookings(vector<string> queries) {
+    unordered_map<string,int> mp;
+    for(auto it:queries){
+        if(it[0]=='+'){
+            mp[it]+=1;
+        }else{
+            if(mp.find(it)!=mp.end()){
+                mp[it]--;
+
+            }
+        }
+    }
+    int sum=0;
+    for(auto it:mp){
+      sum+=it.second;
+    }
+    return sum;
+}
