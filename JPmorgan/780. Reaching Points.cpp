@@ -11,10 +11,10 @@ public:
             }
         }
         if(tx==sx && ty>=sy){
-            return (ty-sx)%tx==0;
+            return (ty-sy)%tx==0;
         }
-        if(sy==ty && tx>=sx){
-            return (tx-sy)%ty==0;
+        else if(sy==ty && tx>=sx){
+            return (tx-sx)%ty==0;
         }
         return false;
     }
